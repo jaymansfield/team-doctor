@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Assignment for Oracle Certified Enterprise Architect - Jason Mansfield</title>
+</head>
+<body>
+
+<header>
+	<h1>Assignment for Oracle Certified Enterprise Architect (1Z0-865)</h1>
+	
+	<table cellspacing="2" cellpadding="5" border="1">
+		<tr>
+			<td>Name</td>
+			<td>Jason Mansfield</td>
+		</tr>
+		<tr>
+			<td>Phone</td>
+			<td>1-416-888-4001</td>
+		</tr>
+		<tr>
+			<td>Email</td>
+			<td><a href="mailto:jmansfield@gmail.com">jmansfield@gmail.com</a></td>
+		</tr>
+		<tr>
+			<td>ID #s</td>
+			<td>
+				OC0901259 (Oracle Testing ID)<br />
+				jaymansfield (Pearson VUE)
+			</td>
+		</tr>
+		<tr>
+			<td>Assignment</td>
+			<td>Team Doctor (scea-OC0901259.jar)</td>
+		</tr>
+	</table>
+</header>
+
+<ul>
+	<li><a href="ClassDiagram.jpg">Class Diagram</a></li>
+	<li><a href="ComponentDiagram.jpg">Component Diagram</a></li>
+	<li><a href="DeploymentDiagram.jpg">Deployment Diagram</a></li>
+	<li><a href="PostRequest.jpg">Sequence Diagram - Post Request Use Case</a></li>
+	<li><a href="ProvideAdvice.jpg">Sequence Diagram - Provide Advice Use Case</a></li>
+	<li><a href="ReviewAdviceRequestClarification.jpg">Sequence Diagram - Review Advice, Request Clarification Use Case</a></li>
+	<li><a href="RespondtoAdditionalRequest.jpg">Sequence Diagram - Respond to Additional Request Use Case</a></li>
+</ul>
+
+<h2>Risks &amp; Mitigation</h2>
+<ol>
+	<li>
+		<b>Patient Privacy</b><br />
+		Patient privacy and confidentiality is extremely important and is always a major risk in healthcare. The following actions should be taken to mitigate the risk.
+
+		<ul>
+			<li>Implement Auditing - Audit (record) all actions performed by users in the application so that there is a record of all access to patient’s PHI (personal health information).</li>
+			<li>Anonymous Patients - If consultants are only providing advice remotely and do not interact with the patients directly they do not need to know the patients name they are providing advice for.
+			<li>Secure Web Services - Add an additional firewall between the application server and web services to create another DMZ. </li>
+		</ul>
+	</li>
+	<li>
+		<b>Availability</b><br />
+		The team doctor system must maintain an availability of 99.99%. The following actions should be taken to mitigate the risk.
+
+		<ul>
+			<li>Web Services SLA - Any failure on the three web services will cause a disruption to the team doctor system. The providers of the three web services should provide a SLA with a 99.99% availability.</li>
+			<li>Test Availability - The system and failover (hot standbys) needs to be tested frequently to ensure availability. </li>
+		</ul>
+	</li>
+	<li>
+		<b>Performance</b><br />
+		
+		<ul>
+			<li>Caching - A caching system could be implemented to reduce the number of web service calls and improve performance in the loading &amp; viewing of requests.</li>
+			<li>Sizing Servers - More time could be spent sizing the web servers appropriately. Different configurations need to be tested and compared to determine what we handle all non functional requirements. </li>
+			<li>Web Services SLA - The providers of the three web services should provide a SLA to meet required performance requirements.</li>
+			<li>Test Performance - The system needs to be tested frequently simulating both regular traffic and peak loads to ensure performance.</li>
+		</ul>
+	</li>
+</ol>
+
+<h2>Assumptions</h2>
+<ul>
+	<li>Authentication is handled by the container.</li>
+	<li>Consultants can be experts at multiple subject matters (multiple specializations). </li>
+	<li>All prescription and patient history data are in plain text and all rich content are in binary.</li>
+	<li>Rich content is transmitted over web service with base64 encoding.</li>
+	<li>The three web services are located in the same private network as the application servers.</li>
+</ul>
+
+<br /><br />
+
+</body>
+</html>
